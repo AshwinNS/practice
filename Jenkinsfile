@@ -11,13 +11,11 @@ pipeline {
             }
         }
         stage('test'){
-            steps{
-                if(env.first == null || env.second == null){
-                    echo "some or all inputs are empty"
-                }else{
-                    echo env.first
-                    echo env.Second
-                }
+            if(env.first == null || env.second == null){
+                echo "some or all inputs are empty"
+            }else{
+                echo env.first
+                echo env.Second
             }
         }
     }
