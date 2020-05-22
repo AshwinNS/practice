@@ -10,7 +10,7 @@ node {
         if(env.first == "" || env.second == ""){
             echo "some or all inputs are empty"
         }else{
-            echo env.first +":" + env.second
+            echo env.first +":" + env.second+ ":"+ :${env.BUILD_ID}
         }
     }
 }
