@@ -1,15 +1,15 @@
-node(master){
-    stage('Git Checkout') {
-        vars = checkout scm
-        branch = vars.GIT_BRANCH
-        commit = vars.GIT_COMMIT
-        tag = branch.equals('master') ? 'stable' : branch.toLowerCase().replaceAll(/[^a-z0-9_\-]/, '')
-        opts = "TAG='${tag}' SHELL='sh -x'"
-        println( "branch=${branch}, tag=${tag}" )
-    }
+pipeline {
+    agent ('docker') {
+        stage('Git Checkout') {
+            checkout([$class: 'GitSCM',
+            branches: [[name: '*/roller']],
+            doGenerateSubmoduleConfigurations: false,
+            userRemoteConfigs: [[credentialsId: '16fd2382-4fcf-466f-8aed-8f93e72de489',
+            url: 'https://github.com/AshwinNS/practice']]])
+        }
 
-    stage('test'){
-        echo $first
-        echo $second
+        stage('test'){
+            echo 'testing'
+        }
     }
 }
