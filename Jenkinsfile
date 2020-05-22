@@ -11,7 +11,7 @@ node {
             echo "some or all inputs are empty"
         }else{
             echo env.first
-            echo env.Second
+            echo env.second
         }
     }
 }
