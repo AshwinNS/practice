@@ -9,6 +9,8 @@ pipeline {
         }
 
         stage('test'){
+            echo "$first"
+            echo "$second"
             echo 'testing'
         }
     }
