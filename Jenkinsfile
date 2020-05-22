@@ -1,2 +1,2 @@
-echo $env.first
-echo $env.second
+echo $first
+echo $second
