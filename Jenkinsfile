@@ -1,5 +1,5 @@
 pipeline {
-    agent ('docker') {
+    node ('master') {
         stage('Git Checkout') {
             checkout([$class: 'GitSCM',
             branches: [[name: '*/roller']],
