@@ -7,7 +7,7 @@ node {
         url: 'https://github.com/AshwinNS/practice']]])
     }
     stage('test'){
-        if(env.first == null || env.second == null){
+        if(env.first == "" || env.second == ""){
             echo "some or all inputs are empty"
         }else{
             echo env.first
