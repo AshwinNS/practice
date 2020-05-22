@@ -12,8 +12,8 @@ pipeline {
         }
         stage('test'){
             steps{
-                echo "$first"
-                echo "$second"
+                echo "$env.first"
+                echo "$env.second"
                 echo 'testing'
             }
         }
