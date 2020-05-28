@@ -13,9 +13,9 @@ node {
         url: 'https://github.com/AshwinNS/practice']]])
     }
     stage('test') {
-            def rootDir = pwd()
-            def example = load "${rootDir}@script/Example.Groovy "
-            example.exampleMethod()
-            example.otherExampleMethod()
+        def rootDir = pwd()
+        def example = load "${rootDir}@script/Example.Groovy "
+        example.exampleMethod()
+        example.otherExampleMethod()
     }
 }
