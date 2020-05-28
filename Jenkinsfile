@@ -14,7 +14,7 @@ node {
     }
     stage('test') {
         def rootDir = pwd()
-        def example = load "${rootDir}@script/Example.Groovy "
+        def example = load "${rootDir}/Example.Groovy"
         example.exampleMethod()
         example.otherExampleMethod()
     }
