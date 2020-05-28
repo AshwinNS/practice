@@ -1,8 +1,6 @@
-//def rollingRestartDC = "${env.Datacenter}".trim()
-//def stem = 'core'
-//def numNodes = 5
-
-//String[] nodes = (1..numOfNodes).inject([]) { a, i -> a + "${stem}0${i}.${rollingRestartDC}.some.com" }
+def rollingRestartDC = "${env.Datacenter}".trim()
+def stem = 'core'
+def numNodes = 5
 
 node {
     stage('Git Checkout') {
@@ -18,11 +16,6 @@ node {
 }
 
 def exampleMethod() {
-
-    def rollingRestartDC = "tea1"
-    def stem = 'core'
-    int numNodes = 5
-
     String[] nodes = (1..numNodes).inject([]) { a, i -> a + "${stem}0${i}.${rollingRestartDC}.some.com" }
     for(x in nodes){
         println(x)
