@@ -5,7 +5,7 @@ def exampleMethod() {
     int numNodes = 5
 
     String[] nodes = (1..numNodes).inject([]) { a, i -> a + "${stem}0${i}.${rollingRestartDC}.some.com" }
-    println(nodes)
+    println(nodes.class)
 }
 
 return this
