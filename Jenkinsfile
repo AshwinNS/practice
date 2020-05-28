@@ -3,7 +3,8 @@
 //def numNodes = 5
 
 //String[] nodes = (1..numOfNodes).inject([]) { a, i -> a + "${stem}0${i}.${rollingRestartDC}.some.com" }
-def thing = load 'Thing.groovy'
+@Library('utils') _
+
 node {
     stage('Git Checkout') {
         checkout([$class: 'GitSCM',
@@ -13,6 +14,6 @@ node {
         url: 'https://github.com/AshwinNS/practice']]])
     }
     stage('test') {
-        echo thing.doStuff()
+        echo info()
     }
 }
