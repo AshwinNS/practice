@@ -15,7 +15,7 @@ node {
     }
 }
 
-def exampleMethod() {
+def exampleMethod(hostname, adminPort) {
     def url = "http://${hostname}:${adminPort}"
     echo "checking ${url}/info"
     def info = httpRequest(url: url + '/info', validResponseCodes: '200', quiet: true)
