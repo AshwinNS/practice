@@ -1,3 +1,9 @@
+def rollingRestartDC = (${env.Datacenter}?.trim())
+def stem = 'core'
+def numNodes = 5
+
+String[] nodes = (1..numOfNodes).inject([]) { a, i -> a + "${stem}0${i}.${rollingRestartDC}.tivo.com" }
+
 node {
     stage('Git Checkout') {
         checkout([$class: 'GitSCM',
@@ -7,10 +13,6 @@ node {
         url: 'https://github.com/AshwinNS/practice']]])
     }
     stage('test'){
-        if(env.first == "" || env.second == ""){
-            echo "some or all inputs are empty"
-        }else{
-            echo env.first +":" + env.second+ ":"+ env.BUILD_ID
-        }
+        echo nodes
     }
 }
