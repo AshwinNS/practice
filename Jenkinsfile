@@ -13,9 +13,6 @@ node {
         url: 'https://github.com/AshwinNS/practice']]])
     }
     stage('test') {
-        //def rootDir = pwd()
-        //def example = load "${rootDir}/Example.Groovy"
-        //example.
         exampleMethod()
     }
 }
@@ -27,5 +24,7 @@ def exampleMethod() {
     int numNodes = 5
 
     String[] nodes = (1..numNodes).inject([]) { a, i -> a + "${stem}0${i}.${rollingRestartDC}.some.com" }
-    println(nodes.class)
+    for(x in nodes){
+        println(x)
+    }
 }
