@@ -11,11 +11,11 @@ node {
         url: 'https://github.com/AshwinNS/practice']]])
     }
     stage('test') {
-        exampleMethod()
+        exampleMethod(numNodes, stem, rollingRestartDC)
     }
 }
 
-def exampleMethod() {
+def exampleMethod(numNodes, stem, rollingRestartDC) {
     String[] nodes = (1..numNodes).inject([]) { a, i -> a + "${stem}0${i}.${rollingRestartDC}.some.com" }
     for(x in nodes){
         println(x)
