@@ -3,7 +3,6 @@
 //def numNodes = 5
 
 //String[] nodes = (1..numOfNodes).inject([]) { a, i -> a + "${stem}0${i}.${rollingRestartDC}.some.com" }
-@Library('utils') _
 
 node {
     stage('Git Checkout') {
@@ -14,6 +13,9 @@ node {
         url: 'https://github.com/AshwinNS/practice']]])
     }
     stage('test') {
-        echo info()
+            def rootDir = pwd()
+            def example = load "${rootDir}@script/Example.Groovy "
+            example.exampleMethod()
+            example.otherExampleMethod()
     }
 }
