@@ -1,8 +1,8 @@
-def rollingRestartDC = (${env.Datacenter}?.trim())
+def rollingRestartDC = "${env.Datacenter}".trim()
 def stem = 'core'
 def numNodes = 5
 
-String[] nodes = (1..numOfNodes).inject([]) { a, i -> a + "${stem}0${i}.${rollingRestartDC}.tivo.com" }
+String[] nodes = (1..numOfNodes).inject([]) { a, i -> a + "${stem}0${i}.${rollingRestartDC}.some.com" }
 
 node {
     stage('Git Checkout') {
