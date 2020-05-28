@@ -16,6 +16,5 @@ node {
         def rootDir = pwd()
         def example = load "${rootDir}/Example.Groovy"
         example.exampleMethod()
-        example.otherExampleMethod()
     }
 }
